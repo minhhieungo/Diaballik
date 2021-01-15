@@ -1,0 +1,44 @@
+package diaballik.model;
+import diaballik.modele.*;
+import org.junit.jupiter.api.*;
+
+import java.util.stream.IntStream;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+public class TestPiece {
+
+    /**
+     * @throws java.lang.Exception
+     */
+    @BeforeAll
+    static void setUpBeforeClass() throws Exception {
+    }
+
+    /**
+     * @throws java.lang.Exception
+     */
+    @AfterAll
+    static void tearDownAfterClass() throws Exception {
+    }
+
+    /**
+     * @throws java.lang.Exception
+     */
+    @BeforeEach
+    void setUp() throws Exception {
+
+    }
+
+    /**
+     * @throws java.lang.Exception
+     */
+    @AfterEach
+    void tearDown() throws Exception {
+    }
+
+
+
+}

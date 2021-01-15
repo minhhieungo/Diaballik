@@ -1,0 +1,93 @@
+<header class="header-basic">
+
+	<div class="header-limiter">
+
+	<h1>Diaba<span>llik</span></h1>
+
+		<nav>
+            <button (click)="undo()">Undo</button>
+            <button (click)="redo()">Redo</button>
+            <button (click)="endTurn()">End Turn</button>
+            <button class="selected" routerLink="/menu">Menu</button>
+		</nav>
+	</div>
+
+</header>
+
+<br/>
+
+<div class="jeuclass" *ngIf = !win()>
+    <aside>
+        <ng-container *ngIf = p1Win()>
+            <div class= "triangle"></div>
+        </ng-container>
+        <h2  >{{nameP1()}}</h2>
+        <ng-container *ngIf = "colorP1Noir()">
+            <div class= 'pionclass' [ngStyle]="{'width': '20px' , 'height': '20px', 'border': 'none'}">
+            </div>
+        </ng-container>
+        <ng-container *ngIf = "!colorP1Noir()">
+                <div class= 'pionclass'[ngStyle]="{'background-color': 'Cornsilk' , 'width': '20px' , 'height': '20px'}">
+                </div>
+        </ng-container>
+    </aside>
+    <table>
+    <tr *ngFor="let y of [0,1,2,3,4,5,6]"> 
+        <td *ngFor="let x of [0,1,2,3,4,5,6]">
+            <div class='caseclass'
+                (mousedown)="rightClick($event)"
+                oncontextmenu="return false;"
+                [attr.data-x]=x
+                [attr.data-y]=y >
+            <ng-container *ngFor="let p of [6,5,4,3,2,1,0]">
+                    <div *ngIf= colorP1Noir()>
+                        <div class='pionclass' *ngIf= "isAPiecePlayer1(p,x,y)">
+                            <div class='ballclass' *ngIf= "haveABallP1(p)">
+                                </div>
+                        </div>
+                        <div class='pionclass' *ngIf= "isAPiecePlayer2(p,x,y)" [ngStyle]="{'background-color': 'Cornsilk'}">
+                            <div class='ballclass' *ngIf= "haveABallP2(p)" [ngStyle]="{'background-color': 'Green'}">
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf= !colorP1Noir()>
+                        <div class='pionclass' *ngIf= "isAPiecePlayer1(p,x,y)" [ngStyle]="{'background-color': 'Cornsilk'}">
+                            <div class='ballclass' *ngIf= "haveABallP1(p)" [ngStyle]="{'background-color': 'Green'}">
+                                </div>
+                        </div>
+                        <div class='pionclass' *ngIf= "isAPiecePlayer2(p,x,y)" >
+                            <div class='ballclass' *ngIf= "haveABallP2(p)" >
+                            </div>
+                        </div>
+                    </div>    
+                </ng-container>
+            </div>
+        </td>
+    </tr>
+    </table>
+    <aside>
+            <ng-container *ngIf = !p1Win()>
+                    <div class= "triangle"></div>
+                </ng-container>
+            <h2>{{nameP2()}}</h2>
+        <ng-container *ngIf = "!colorP1Noir()">
+            <div class= 'pionclass' [ngStyle]="{'width': '20px' , 'height': '20px', 'border' : 'none'}">
+            </div>
+        </ng-container>
+        <ng-container *ngIf = "colorP1Noir()">
+                <div class= 'pionclass'[ngStyle]="{'width': '20px' , 'height': '20px', 'background-color': 'Cornsilk'}">
+                </div>
+        </ng-container>
+    </aside>
+</div>
+
+<div class="win" *ngIf = win()>
+    <p>Winner:
+    <span *ngIf= p1Win()>{{nameP1()}}</span>
+    <span *ngIf= !p1Win()>{{nameP2()}}</span>    
+</p>
+<p>Game finish! Please return to the <a href="menu">menu</a> </p>
+
+</div>
+
+<footer> <p>Game design by Minh-Hieu NGO and Marine Vicario</p></footer>
