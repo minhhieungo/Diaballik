@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 bin
 target
 *~
@@ -10,5 +9,4 @@ target
 *~
 .cache
 .idea
->>>>>>> 9f48c28525743029ce52b4f403551996ecff7cae
 *.iml
