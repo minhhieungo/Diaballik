@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 This project is a part of the OOP class at INSA de Rennes.
 
 ## Layout
@@ -74,4 +74,4 @@ REDO is to undo the undo action.
 
 END TURN is to finish your turn. Once you end your turn you can't undo your action.
 
->>>>>>> 9f48c28525743029ce52b4f403551996ecff7cae
+
