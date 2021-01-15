@@ -1,0 +1,40 @@
+
+<body>
+<header class="header-basic">
+
+    <div class="header-limiter">>
+
+    <h1>Diaba<span>llik</span></h1>
+        
+    </div>
+</header>
+<p class="text">Game mode: <select name="gamemode" class ="box" [value]="gamemode" (input)="changemode()" >
+    <option value="false" >Player VS Computer</option>
+    <option value="true">Player VS Player</option>
+</select></p>
+<p class="text">Player 1 name:   <input type="text" class ="box" [value]="nameP1" maxlength="12" (input)="nameP1 = $event.target.value"/></p>
+<p class="text">Player 1 color:   <select name="colorP1" class ="box" [value]="colorP1" (input)="colorP1 = $event.target.value">
+    <option value="NOIR" >Noir</option>
+    <option value="BLANC">Blanc</option>
+        </select></p>
+
+
+<div *ngIf="gamemode">
+    <p class="text"> Player 2 name: <input type="text" class ="box" [value]="nameP2" maxlength="12" (input)="nameP2 = $event.target.value"/></p>
+        <button (click)="launchGameHuman()" routerLink="/board">Start Game</button>
+</div>
+
+<div *ngIf="!gamemode">
+    <p class="text">AI Level: <select name="Level" class ="box" value="Level" (input)="level = $event.target.value" >
+        <option value="noob" selected>Noob</option>
+        <option value="starting">Starting</option>
+        <option value="progressive">Progressive</option>
+    </select></p>
+    <button (click)="launchGameAI()" routerLink="/board">Start Game</button>
+</div>
+<br/>
+<footer> <p>Game design by Minh-Hieu NGO and Marine Vicario</p></footer>
+</body>     
+
+
+   
